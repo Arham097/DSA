@@ -120,9 +120,7 @@ int main(){
 
     insertAtNode(tail,5,6);
     print(tail);
-
-    cout<< tail->data;
-
+    
     // deleteNode(tail,3);
     // print(tail); 
 

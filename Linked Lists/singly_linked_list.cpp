@@ -24,13 +24,12 @@ class Node{
 };
 void insertAtHead(Node*& head, Node*& tail, int data){
 
+    Node* temp  = new Node(data);
     if(head == NULL){
-        Node* temp  = new Node(data);
         head = temp;
         tail = temp;
     }
     else{
-        Node*temp = new Node(data);
         temp->next = head;
         head = temp;
 
@@ -39,12 +38,12 @@ void insertAtHead(Node*& head, Node*& tail, int data){
 
 void insertAtTail(Node*& head,Node*& tail, int data){
 
+    Node* temp  = new Node(data);
      if(tail == NULL){
-        Node* temp  = new Node(data);
         tail = temp;
     }
     else{
-        Node* temp = new Node(data);
+      
         tail->next = temp;
         tail = tail->next;  
 
