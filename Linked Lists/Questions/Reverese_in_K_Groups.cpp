@@ -39,12 +39,9 @@ Node* reversed(Node* head, int k) {
     int count = 0;
     int l=len(head);
     if(l<k)
-
-{
-
-    return head;
-
-}
+    {
+        return head;
+    }
 
     while(curr!=NULL && count<k){
         forward = curr->next;

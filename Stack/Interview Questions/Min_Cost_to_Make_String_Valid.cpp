@@ -1,0 +1,44 @@
+#include<iostream>
+#include<stack>
+using namespace std;
+
+int findMinimumCost(string str) {
+  // Write your code here
+   if(str.length()%2==1) return -1;
+
+   stack<char> s;
+   for(char ch: str){
+     if(ch=='{'){
+       s.push(ch);
+     }
+     else{
+       if(!s.empty()&& s.top()=='{'){
+         s.pop();
+       }
+       else{
+         s.push(ch);
+       }
+     }
+   }
+   int a=0,b=0;
+   while(!s.empty()){
+     if(s.top()=='{'){
+       b++;
+     }
+     else{
+       a++;
+     }
+     s.pop();
+   }  
+   int ans = (a+1)/2 + (b+1)/2;
+   return ans;
+}
+int main(){
+
+    string str = "{{{{";
+    int ans = findMinimumCost(str);
+    cout<<"The Minimum Cost to Make String Valid is: "<<ans;
+
+
+    return 0;
+}

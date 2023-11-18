@@ -63,6 +63,8 @@ void print(Node*&head){
 //     }
 
 
+// Check Palindrome (Approach 2) Time COmplexity O(n) and Space Complexity O(1)
+
    Node* getMid(Node* head){
             Node* slow = head;
             Node* fast = head->next;

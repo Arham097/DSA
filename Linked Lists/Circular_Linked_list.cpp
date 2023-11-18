@@ -4,12 +4,10 @@ using namespace std;
 class Node{
     public:
     int data;
-    Node* prev;
     Node* next;
 
     Node(int data){
         this->data = data;
-        this->prev = NULL;
         this->next = NULL;
     }
     ~Node(){
@@ -79,7 +77,7 @@ void deleteNode(Node*& tail, int element){
         }
         prev->next = curr->next;
 
-        if(curr==tail){
+        if(curr==prev){
             tail=NULL;
         }
         else if(tail ==curr){
