@@ -14,10 +14,13 @@ using namespace std;
     };
 
 
-// Time Complexity O(n)
+// Time Complexity O(n) 
+//Space Complexity O(n)
+
+// Recursive Way
 
 bool searchInBST(BinaryTreeNode<int> *root, int x) {
-    // Write your code here.
+  
     if(root==NULL) return false;
 
     if(root->data==x) return true;
@@ -28,4 +31,26 @@ bool searchInBST(BinaryTreeNode<int> *root, int x) {
     else{
         return searchInBST(root->right,x);
     }
+}
+
+// Time Complexity O(n) 
+//Space Complexity O(1)
+
+// Iterative  Way
+
+bool searchInBST(BinaryTreeNode<int> *root, int x) {
+   
+   BinaryTreeNode<int> *temp = root;
+   while(temp!= NULL){
+    if(temp->data ==x){
+        return true;
+    }
+    if(temp->data>x){
+        temp = temp->left;
+    }
+    else{
+        temp = temp->right; 
+    }
+   }
+   return false;
 }

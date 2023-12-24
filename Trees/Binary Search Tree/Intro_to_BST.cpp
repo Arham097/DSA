@@ -95,6 +95,62 @@ void postOrder(node* root){
     cout<<root->data<<" ";
 }
 
+int minVal(node *root)
+    {
+        node* temp = root;
+        while(temp->left!=NULL){
+            temp = temp->left;
+        }
+        return temp->data;
+}
+node* deleteInBST(node* root, int val){
+    // base case
+    if(root== NULL){
+        return root;
+    }
+    // node found
+    if(root->data == val){
+        // 0 child
+        if(root->left ==NULL && root->right == NULL){
+            delete root;
+            return NULL;
+        }
+        // 1 child
+
+        //left child
+        if(root->left!=NULL && root->right == NULL){
+            node* temp = root->left;
+            delete root;
+            return temp;
+        }
+        // right child
+        if(root->left==NULL && root->right!= NULL){
+            node* temp = root->right;
+            delete root;
+            return temp;
+        }
+
+        // 2 child
+        if(root->left != NULL && root->right!=NULL){
+            int mini = minVal(root->right);
+            root->data =  mini;
+            root->right = deleteInBST(root->right, mini);
+            return root;
+        }
+
+    }
+    else if(root->data>val){
+        root->left = deleteInBST(root->left,val);
+        return root;
+    }
+    else{
+        root->right = deleteInBST(root->right,val);
+        return root;
+    }
+    
+}
+
+
 int main(){
     node* root = NULL;
 
@@ -103,14 +159,18 @@ int main(){
 
     levelOrderTraversal(root);
 
-    cout<<"Printing Inorder:"<<endl;
-    inOrder(root);
-    cout<<endl;
-    cout<<"Printing preorder:"<<endl;
-    preOrder(root);
-    cout<<endl;
+    // cout<<"Printing Inorder:"<<endl;
+    // inOrder(root);
+    // cout<<endl;
+    // cout<<"Printing preorder:"<<endl;
+    // preOrder(root);
+    // cout<<endl;
 
-    cout<<"Printing postorder:"<<endl;
-    postOrder(root);
+    // cout<<"Printing postorder:"<<endl;
+    // postOrder(root);
+
+    cout<<endl;
+    deleteInBST(root,7);
+    levelOrderTraversal(root);
     return 0;
 }
