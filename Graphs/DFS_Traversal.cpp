@@ -59,13 +59,13 @@ int main(){
     }
 
     vector<vector<int>> result = DFS(m,n,graph); 
-    cout<<"DFS Traversal: "<<endl;
+    cout<<endl<<"DFS Traversal: "<<endl;
     
     // Print The answers
     for (auto i : result) {
         for (int node : i) {
             cout<<node<< " ";
         }
+    }
     return 0;
-}
 }

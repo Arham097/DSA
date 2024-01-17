@@ -72,7 +72,7 @@ int main(){
     for (int node : bfsResult) {
         cout << node << " ";
     }
-    cout << std::endl;
+    cout <<endl;
 
     return 0;
 }

@@ -10,7 +10,7 @@ class heap{
         arr[0] = -1;
         size = 0;
     }
-    // Insertion in O(log n)
+    //Time Complexity of Insetion is O (log n)
     void insert(int val){
         size++;
         int index = size;
@@ -19,7 +19,7 @@ class heap{
         while(index>1){
             int parent = index/2;
             if(arr[parent]<arr[index]){
-                swap(arr[parent],arr[index]);
+                swap(arr[parent] , arr[index]);
                 index = parent;
             }
             else{
@@ -27,8 +27,8 @@ class heap{
             }
         }
     }
-    // Deletion in O(log n)
-void deletion() {
+      // Deletion in O(log n)
+    void deletion() {
     if (size == 0) {
         cout << "deletion is not possible" << endl;
         return;
@@ -50,13 +50,12 @@ void deletion() {
     }
 }
     void print(){
-        for(int i=1;i<=size; i++ ){
+        for(int i=1; i<=size; i++){
             cout<<arr[i]<<" ";
         }
     }
 };
-
-
+// heapify algorithm with time complexity O (log n)
 void heapify(int* arr, int n, int i){
         int largest = i;
         int left = 2*i;
@@ -74,6 +73,7 @@ void heapify(int* arr, int n, int i){
         }
 
     }
+// Heap sort with T.C O (nlogn)
 void heapsort(int *arr, int n){
     int size = n;
     while(size>1){
@@ -105,6 +105,7 @@ int main(){
     for(int i = 1; i<=n; i++){
         cout<<arr[i]<<" ";
     }
+
 
     return 0;
 }

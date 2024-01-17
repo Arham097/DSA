@@ -95,13 +95,13 @@ void postOrder(node* root){
     cout<<root->data<<" ";
 }
 
-int minVal(node *root)
+node* minVal(node *root)
     {
         node* temp = root;
         while(temp->left!=NULL){
             temp = temp->left;
         }
-        return temp->data;
+        return temp;
 }
 node* deleteInBST(node* root, int val){
     // base case
@@ -132,7 +132,7 @@ node* deleteInBST(node* root, int val){
 
         // 2 child
         if(root->left != NULL && root->right!=NULL){
-            int mini = minVal(root->right);
+            int mini = minVal(root->right)->data;
             root->data =  mini;
             root->right = deleteInBST(root->right, mini);
             return root;
